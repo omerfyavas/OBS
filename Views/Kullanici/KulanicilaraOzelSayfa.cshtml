@@ -1,0 +1,22 @@
+﻿@model string
+
+@{
+    //Layout = null;
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Bu Sayfa Sadece Oturum Açan kişilere özeldir. Oturum Açan Kişinin Adı : @Model</p>
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Bu sayfanın açıldığı saat : @Model</p>
+</div>
+
