@@ -1,0 +1,36 @@
+﻿@using Login.Domain
+
+@model List<Student>
+@{
+    ViewData["Title"] = "Öğrenci Bilgileri";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ad</th>
+                <th scope="col">Soyad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Name</td>
+                        <td>@item.Surname</td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+
+
+    </table>
+
+}
