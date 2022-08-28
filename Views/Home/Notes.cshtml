@@ -10,33 +10,38 @@
 
     <table class="table">
         <thead>
+
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Vize Notu</th>
-                <th scope="col">Final Notu</th>
-                <th scope="col">Ödev Notu</th>
-                <th scope="col">Ortalama</th>
-                <th scope="col">Durum</th>
+                <th scope="col">Final Notu<th>
+                <th scope="col">Ödev Notu<th>
+                <th scope="col">Ortalama Not<th>
+                <th scope="col">Durumu<th>
+
+                
             </tr>
         </thead>
         <tbody>
+
             @{
+
                 foreach (var item in Model)
                 {
                     <tr>
                         <th scope="row">@item.Id</th>
-                        <td>@item.VisaNote</td>
-                        <td>@item.FinalNote</td>
-                        <td>@item.HomeworkNote</td>
-                        <td>@item.AverageNote</td>
-                        <td>@Html.Raw(item.Status ? "Aktif" : "Pasif")</td>
+                        <td @item.VisaNote></td>
+                        <td @item.FinalNote></td>
+                        <td @item.HomeworkNote></td>
+                        <td @item.AverageNote></td>
+                        <td @item.Status>  </td>
                     </tr>
                 }
             }
+
         </tbody>
 
 
 
     </table>
-
 }

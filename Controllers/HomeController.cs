@@ -10,7 +10,7 @@ namespace Login.Controllers
     {
 
 
-        
+
         //GET:Default
 
         private readonly ILogger<HomeController> _logger;
@@ -22,10 +22,10 @@ namespace Login.Controllers
 
         public IActionResult Index()
         {
-            
+
             var tarih = DateTime.Now.ToString();
 
-            var sessionKontrol = HttpContext.Session.GetString("TEST"); 
+            var sessionKontrol = HttpContext.Session.GetString("TEST");
 
             if (string.IsNullOrEmpty(sessionKontrol))
             {
@@ -33,15 +33,15 @@ namespace Login.Controllers
             }
 
             var session = HttpContext.Session;
-            
 
-            
+
+
 
 
             return View("Index", sessionKontrol);
         }
 
-        
+
         public IActionResult ConfidentialData()
         {
             return View();
@@ -50,9 +50,9 @@ namespace Login.Controllers
         public IActionResult Notes()
         {
 
-            using(var context = new ApplicationDbContext())
+            using (var context = new ApplicationDbContext())
             {
-                var notes = context.Note.ToList();
+                var notes = context.Note.Where(p=>p.Status == true).ToList();
 
                 return View(notes);
 
@@ -61,8 +61,28 @@ namespace Login.Controllers
 
         }
 
+      
 
 
+        public IActionResult Student()
+        {
+
+            using (var context = new ApplicationDbContext())
+            {
+                var students = context.Student.ToList();
+
+                return View(Student);
+
+            }
+
+
+        }
+
+        
+        public IActionResult NotBilgisiGoruntule()
+        {
+            return View(Notes);
+        }
 
 
 
@@ -79,7 +99,7 @@ namespace Login.Controllers
         }
 
 
-       
+    
 
     }
 }

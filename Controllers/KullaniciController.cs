@@ -56,6 +56,7 @@ namespace Login.Controllers
             HttpContext.Session.Remove("User");
 
             return RedirectToAction("Index");
-        }
+        }      
+      
     }
 }
