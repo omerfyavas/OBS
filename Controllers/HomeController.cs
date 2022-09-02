@@ -37,73 +37,52 @@ namespace Login.Controllers
 
             using (var context = new ApplicationDbContext())
             {
-                var notes = context.Note.Where(p => p.Status == true).ToList();
+                var notes = context.Note.ToList();
 
                 return View(notes);
             }
         }
 
-        public IActionResult Students()
-        {
 
-            using (var context = new ApplicationDbContext())
-            {
-                var students = context.Student.OrderByDescending(p => p.Id).Where(p => p.Name == "Ahmet").ToList();
 
-                return View(students);
-            }
-        }
 
-        public IActionResult Lessons()
-        {
 
-            using (var context = new ApplicationDbContext())
-            {
-                var lessons = context.Lesson.ToList();
-
-                return View(lessons);
-            }
-        }
-        //    //
-        //    [HttpPost]
-        //    public IActionResult Post()
-        //    {
-        //        var context = new ApplicationDbContext();
-
-        //    }
-        ////
         [HttpGet]
-        public IActionResult AddLesson()
+        public IActionResult Addnote()
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult CreateLesson(LessonModel model)
+        public IActionResult CreateNote(NoteModel model)
         {
-             if (model.LessonName == null)
+            if (model.VisaNote < 0)
             {
-                TempData["Hata"] = "Lütfen ders adı giriniz";
-                return RedirectToAction("AddLesson");
+                TempData["Hata"] = "Lütfen Geçerli Bir Sayı Giriniz";
+                return RedirectToAction("AddNote");
             }
-            if (model.Credit < 1)
-                
+            if (model.FinalNote < 0)
             {
-                TempData["Hata"] = "Kredi giriniz";
-                return RedirectToAction("AddLesson");
+                TempData["Hata"] = "Lütfen Geçerli Bir Sayı Giriniz";
+                return RedirectToAction("AddNote");
+            }
+            if (model.HomeworkNote < 0)
+            {
+                TempData["Hata"] = "Lütfen Geçerli Bir Sayı Giriniz";
+                return RedirectToAction("AddNote");
             }
 
             using (var context = new ApplicationDbContext())
             {
-                context.Lesson.Add(new Lesson { Credit = model.Credit, Name = model.LessonName });
-
+                context.Note.Add(new Note { VisaNote = (short)model.VisaNote, FinalNote = (short)model.FinalNote, HomeworkNote = (short)model.HomeworkNote });
                 context.SaveChanges();
-
-
-                return View("AddLesson");
+                return View("AddNote");
             }
 
         }
+
+
+
+
 
 
 
