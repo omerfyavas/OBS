@@ -9,7 +9,7 @@ namespace Login.Controllers
     public class LessonController : Controller
     {
         [HttpGet]
-        public IActionResult Lessons()
+        public IActionResult List()
         {
 
             using (var context = new ApplicationDbContext())
@@ -25,7 +25,7 @@ namespace Login.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateLesson(LessonModel model)
+        public IActionResult Create(LessonModel model)
         {
             if (model.LessonName == null)
             {
@@ -46,7 +46,7 @@ namespace Login.Controllers
                 context.SaveChanges();
 
             }
-            return View("Lesson","Lesson");
+            return RedirectToAction("List");
 
         }
     }

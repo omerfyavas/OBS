@@ -9,9 +9,6 @@ namespace Login.Controllers
 {
     public class HomeController : Controller
     {
-
-
-
         //GET:Default
 
         private readonly ILogger<HomeController> _logger;
@@ -31,61 +28,6 @@ namespace Login.Controllers
         {
             return View();
         }
-
-        public IActionResult Notes()
-        {
-
-            using (var context = new ApplicationDbContext())
-            {
-                var notes = context.Note.ToList();
-
-                return View(notes);
-            }
-        }
-
-
-
-
-
-        [HttpGet]
-        public IActionResult Addnote()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult CreateNote(NoteModel model)
-        {
-            if (model.VisaNote < 0)
-            {
-                TempData["Hata"] = "Lütfen Geçerli Bir Sayı Giriniz";
-                return RedirectToAction("AddNote");
-            }
-            if (model.FinalNote < 0)
-            {
-                TempData["Hata"] = "Lütfen Geçerli Bir Sayı Giriniz";
-                return RedirectToAction("AddNote");
-            }
-            if (model.HomeworkNote < 0)
-            {
-                TempData["Hata"] = "Lütfen Geçerli Bir Sayı Giriniz";
-                return RedirectToAction("AddNote");
-            }
-
-            using (var context = new ApplicationDbContext())
-            {
-                context.Note.Add(new Note { VisaNote = (short)model.VisaNote, FinalNote = (short)model.FinalNote, HomeworkNote = (short)model.HomeworkNote });
-                context.SaveChanges();
-                return View("AddNote");
-            }
-
-        }
-
-
-
-
-
-
-
         public IActionResult Privacy()
         {
             return View();

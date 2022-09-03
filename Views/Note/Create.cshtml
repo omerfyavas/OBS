@@ -7,13 +7,12 @@
         <h3>Hata:@TempData["Hata"] </h3>
     }
 }
-@using (Html.BeginForm("CreateNote", "Home", FormMethod.Post))
+@using (Html.BeginForm("Create", "Note", FormMethod.Post))
 {
     <h2>Not Ekle</h2>
 <input type="text" name="visaNote" placeholder="Vize Notu"/>
 <input type="number" name="finalNote" placeholder="Final Notu" />
 <input type="number" name="homeworkNote" placeholder="Ödev Notu" />
 <input type="submit" value="Notu Kaydet"/>
-
-
 }
+
