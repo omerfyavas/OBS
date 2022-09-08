@@ -10,9 +10,9 @@
 @using (Html.BeginForm("Create", "Note", FormMethod.Post))
 {
     <h2>Not Ekle</h2>
-<input type="text" name="visaNote" placeholder="Vize Notu"/>
-<input type="number" name="finalNote" placeholder="Final Notu" />
-<input type="number" name="homeworkNote" placeholder="Ödev Notu" />
-<input type="submit" value="Notu Kaydet"/>
+    <input type="number" name="studentId" placeholder="Öğrenci Id" />
+    <input type="number" name="visaNote" placeholder="Vize Notu" />
+    <input type="number" name="finalNote" placeholder="Final Notu" />
+    <input type="number" name="homeworkNote" placeholder="Ödev Notu" />
+    <input type="submit" value="Notu Kaydet" />
 }
-

@@ -8,8 +8,11 @@
 
         public int HomeworkNote { get; set; }
 
-        public int AverageNote { get; set; }
+        public decimal AverageNote { get; set; }
 
         public bool Status { get; set; }
+
+        public int Total { get; set; }
     }
+
 }
