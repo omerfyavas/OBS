@@ -62,11 +62,6 @@ namespace Login.Controllers
                 TempData["Hata"] = "Lütfen geçerli sayi giriniz";
                 return RedirectToAction("Create");
             }
-            if (model.StudentId == null)
-            {
-                TempData["Hata"] = "Lütfen geçerli sayi giriniz";
-                return RedirectToAction("Create");
-            }
 
             using (var context = new ApplicationDbContext())
             {
