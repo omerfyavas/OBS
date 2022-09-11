@@ -1,16 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Login.Domain
+
+@model List<Student>
 @{
+
+    var veri = Model;
     if (TempData["Hata"] != null)
     {
         <h3>Hata:@TempData["Hata"] </h3>
     }
 }
-@using (Html.BeginForm("Create", "Note", FormMethod.Post))
+@using (Html.BeginForm("CreatePOST", "Note", FormMethod.Post))
 {
     <h2>Not Ekle</h2>
-    <input type="number" name="studentId" placeholder="Öğrenci Id" />
+    <select class="form-control" id="StudentGender" name="StudentGender">
+        @{
+            foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.Name @item.Surname</option>
+            }
+        }
+    </select>
     <input type="number" name="visaNote" placeholder="Vize Notu" />
     <input type="number" name="finalNote" placeholder="Final Notu" />
     <input type="number" name="homeworkNote" placeholder="Ödev Notu" />

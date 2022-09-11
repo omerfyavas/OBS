@@ -18,6 +18,7 @@ namespace Login.Controllers
             }
 
         }
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -33,7 +34,7 @@ namespace Login.Controllers
                 return RedirectToAction("Create");
             }
             if (model.StudentSurname == null)
-            {   
+            {
                 TempData["Hata"] = "Lütfen geçerli soyisim giriniz";
                 return RedirectToAction("Create");
             }
@@ -91,19 +92,14 @@ namespace Login.Controllers
             TempData["Bilgi"] = "Güncelleme Başarılı";
             return RedirectToAction("List");
         }
+
         [HttpGet]
         public IActionResult Delete(int id)
         {
             using (var context = new ApplicationDbContext())
             {
-                var existingStudent=context.Student.Where(p=>p.Id == id).FirstOrDefault();
-                if (existingStudent == null)
-                {
-                    TempData["Hata"] = "Kayıt bulunamadı";
-                    return View("Delete");
-
-                }
-                var studentModel=new StudentModel();
+                var existingStudent = context.Student.Where(p => p.Id == id).FirstOrDefault();
+                var studentModel = new StudentModel();
                 studentModel.Id = id;
                 studentModel.StudentName = existingStudent.Name;
                 studentModel.StudentSurname = existingStudent.Surname;
@@ -119,13 +115,6 @@ namespace Login.Controllers
             using (var context = new ApplicationDbContext())
             {
                 var existingStudent = context.Student.Where(p => p.Id == model.Id).FirstOrDefault();
-
-                if (existingStudent == null)
-                {
-                    TempData["Hata"] = "Kayıt bulunamadı";
-                    return View("Delete");
-                }
-
                 existingStudent.Name = model.StudentName;
                 existingStudent.Surname = model.StudentSurname;
 

@@ -37,15 +37,21 @@ namespace Login.Controllers
             }
 
         }
+
         [HttpGet]
         public IActionResult Create()
         {
-         
-            return View();
+            using (var context = new ApplicationDbContext())
+            {
+                var students = context.Student.OrderByDescending(p => p.Id).ToList();
+
+                return View(students);
+            }
+
         }
 
         [HttpPost]
-        public IActionResult Create(StudentNoteModel model)
+        public IActionResult CreatePOST(StudentNoteModel model)
         {
             if (model.VisaNote < 0 || model.VisaNote > 100)
             {

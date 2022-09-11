@@ -10,12 +10,16 @@
   <ItemGroup>
     <Compile Remove="css\**" />
     <Compile Remove="js\**" />
+    <Compile Remove="Views\LoginViewModel\**" />
     <Content Remove="css\**" />
     <Content Remove="js\**" />
+    <Content Remove="Views\LoginViewModel\**" />
     <EmbeddedResource Remove="css\**" />
     <EmbeddedResource Remove="js\**" />
+    <EmbeddedResource Remove="Views\LoginViewModel\**" />
     <None Remove="css\**" />
     <None Remove="js\**" />
+    <None Remove="Views\LoginViewModel\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -162,7 +166,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Views\LoginViewModel\" />
   </ItemGroup>
 
 </Project>

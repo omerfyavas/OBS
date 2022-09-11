@@ -1,20 +1,19 @@
 ﻿@{
     ViewBag.Title = "Create";
-    List<SelectListItem> | 1 = new List<SelectListItem>();
 }
 @{
-    if(TempData["Hata"] != null)
+    if (TempData["Hata"] != null)
     {
         <h3>Hata : @TempData["Hata"]</h3>
     }
-    
+
 }
 @using (Html.BeginForm("Create", "Lesson", FormMethod.Post))
 {
     <h2>Ders Ekle</h2>
-<input type="text" name="lessonName" placeholder="Ders Adı"/>
-<input type="number" name="credit" placeholder="Kredi" />
-<input type="submit" value="Ders Ekle"/>
+    <input type="text" name="lessonName" placeholder="Ders Adı" />
+    <input type="number" name="credit" placeholder="Kredi" />
+    <input type="submit" value="Ders Ekle" />
 
 
 }
