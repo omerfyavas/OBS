@@ -30,19 +30,19 @@ namespace Login.Controllers
             if (model.StudentName == null)
             {
                 TempData["Hata"] = "Lütfen geçerli isim giriniz";
-                return RedirectToAction("Student");
+                return RedirectToAction("List");
             }
             if (model.StudentSurname == null)
             {
                 TempData["Hata"] = "Lütfen geçerli soyisim giriniz";
-                return RedirectToAction("Student");
+                return RedirectToAction("List");
             }
             using (var context = new ApplicationDbContext())
             {
                 context.Student.Add(new Student { Name = model.StudentName, Surname = model.StudentSurname });
                 context.SaveChanges();
             }
-            return View("Student","List");
+            return RedirectToAction("List");
         }
 
     }
