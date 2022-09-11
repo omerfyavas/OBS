@@ -1,0 +1,47 @@
+﻿@using Login.Domain
+
+@model List<StudentNoteModel>
+@{
+    ViewData["Title"] = "Not Durumu";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{   
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Note ID</th>
+                <th scope="col">Vize Notu</th>
+                <th scope="col">Final Notu</th>
+                <th scope="col">Ödev Notu</th>
+                <th scope="col">Not Ortalaması</th>
+                <th scope="col">Durumu</th>
+                <th scope="col">Öğrenci ID</th>
+                <th scope="col">Öğrenci Adı</th>
+                <th scope="col">Öğrenci Soyadı</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.NoteId</th>
+                        <td> @item.VisaNote</td>
+                        <td> @item.FinalNote</td>
+                        <td> @item.HomeworkNote</td>
+                        <td> @item.AverageNote</td>
+                        <td> @item.Status</td>
+                        <td> @item.StudentId</td>
+                        <td> @item.StudentName</td>
+                        <td> @item.StudentSurname</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+}

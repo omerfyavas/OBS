@@ -1,0 +1,18 @@
+﻿@model StudentModel
+@{
+    if (TempData["Hata"] != null)
+    {
+        <h3>Hata : @TempData["Hata"]</h3>
+    }
+
+}
+@using (Html.BeginForm("Update", "Student", FormMethod.Post))
+{
+    <h2>Öğrenci Güncelle</h2>
+    <input type="hidden" name="id" value="@Model.Id" />
+    <input type="text" name="studentName" value="@Model.StudentName" placeholder="Öğrenci Adı" />
+    <input type="text" name="studentSurname" value="@Model.StudentSurname" placeholder="Öğrenci Soyadı" />
+    <input type="submit" value="Öğrenci Güncelle" />
+
+}
+
