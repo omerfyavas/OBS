@@ -20,6 +20,11 @@ namespace Login.Controllers
 
         public IActionResult Index()
         {
+            var test1 = StaticStringExtensions.Test;
+
+            var test2 = new StringExtensions().Test;
+
+
             return View("Index", "test");
         }
 

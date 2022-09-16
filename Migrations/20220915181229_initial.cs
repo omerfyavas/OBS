@@ -4,7 +4,7 @@
 
 namespace Login.Migrations
 {
-    public partial class Login : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,11 +28,13 @@ namespace Login.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentId = table.Column<int>(type: "int", nullable: false),
                     VisaNote = table.Column<short>(type: "smallint", nullable: false),
                     FinalNote = table.Column<short>(type: "smallint", nullable: false),
                     HomeworkNote = table.Column<short>(type: "smallint", nullable: false),
                     AverageNote = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    Total = table.Column<short>(type: "smallint", nullable: false)
                 },
                 constraints: table =>
                 {

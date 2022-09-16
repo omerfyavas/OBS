@@ -67,6 +67,8 @@ namespace Login.Controllers
 
                 return View("Update", studentModel);
 
+                
+
             }
         }
         [HttpPost]
@@ -99,13 +101,19 @@ namespace Login.Controllers
             using (var context = new ApplicationDbContext())
             {
                 var existingStudent = context.Student.Where(p => p.Id == id).FirstOrDefault();
-                var studentModel = new StudentModel();
-                studentModel.Id = id;
-                studentModel.StudentName = existingStudent.Name;
-                studentModel.StudentSurname = existingStudent.Surname;
 
-                return View("Delete", studentModel);
+                if (existingStudent == null)
+                {
+                    TempData["Hata"] = "Kayıt bulunamadı";
 
+                    return RedirectToAction("List");
+                }
+
+                context.Student.Remove(existingStudent);
+                context.SaveChanges();
+                TempData["Bilgi"] = "Öğrenci Silindi.";
+
+                return RedirectToAction("List");
             }
 
         }

@@ -61,6 +61,12 @@ namespace Login.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<short>("Total")
+                        .HasColumnType("smallint");
+
                     b.Property<short>("VisaNote")
                         .HasColumnType("smallint");
 
