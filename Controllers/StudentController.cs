@@ -36,7 +36,7 @@ namespace Login.Controllers
             if (model.StudentSurname == null)
             {
                 TempData["Hata"] = "Lütfen geçerli soyisim giriniz";
-                return RedirectToAction("Create");
+                return RedirectToAction("Create");  
             }
             using (var context = new ApplicationDbContext())
             {

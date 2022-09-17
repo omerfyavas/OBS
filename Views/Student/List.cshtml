@@ -8,10 +8,10 @@
 
 @{
 
-    <table class="table">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Ad</th>
                 <th scope="col">Soyad</th>
                 <th scope="col">Güncelle</th>
@@ -26,8 +26,8 @@
                         <th scope="row">@item.Id</th>
                         <td>@item.Name</td>
                         <td>@item.Surname</td>
-                        <td><a href="@Url.Action("Update","Student",new {id=item.Id})">Güncelle</a></td>
-                        <td><a data-studentId="@item.Id" class="student-delete" href="javascript:;">Sil</a></td>
+                        <td><button data-studentId="@item.Id" type="button" class="btn btn-primary student-update">Güncelle</button></td>
+                        <td><button data-studentId="@item.Id" type="button" class="btn btn-danger student-delete">Sil</button></td>
                     </tr>
                 }
             }
@@ -45,13 +45,17 @@
                 if (answer) {
                     const student = $(this).attr("data-studentId");
 
-                    alert("Kayıt Siliniyor, ID : " + student);
-
                     window.location = '@Url.Action("Delete","Student")' + "?id=" + student;
                 }
                 else {
                     alert("Kayıt silme iptal");
                 }
+            });
+            $(".student-update").on("click", function (e) {
+
+                const student = $(this).attr("data-studentId");
+                window.location = '@Url.Action("Update","Student")' + "?id=" + student;
+
             });
         });
     </script>

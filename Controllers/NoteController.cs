@@ -72,7 +72,6 @@ namespace Login.Controllers
             using (var context = new ApplicationDbContext())
             {
                 context.Note.Add(new Note { VisaNote = (short)model.VisaNote, FinalNote = (short)model.FinalNote, HomeworkNote = (short)model.HomeworkNote, StudentId = model.StudentId });
-
                 context.SaveChanges();
                 model.Total = model.VisaNote + model.FinalNote + model.HomeworkNote;
                 model.AverageNote = model.Total * 0.3M;

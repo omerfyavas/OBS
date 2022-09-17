@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+@{
+    if (TempData["Hata"] != null)
+    {
+    <h3>Hata : @TempData["Hata"]</h3>
+    }
+}
+
+@using (Html.BeginForm("Register", "Account" , FormMethod.Post)) 
+{
+    <div class="container">
+        <h1>Kayıt Ol</h1>
+        <p>Lütfen Formu Doldurunuz.</p>
+        <hr>
+        <label for="userEmail"><b>E-posta</b></label>
+        <input type="email" name="UserEmail" placeholder="E-postanız" required />
+        <label for="userNameSurname"><b>Ad Soyad</b></label>
+        <input type="text" name="UserNameSurname" placeholder="Adınız Soyadınız" required />    
+        <label for="password"><b>Parola</b></label>
+        <input type="password" name="password" placeholder="Parolanız" required />
+        <label for="submitpassword"><b>Parola Doğrula</b></label>
+        <input type="password" name="rePassword" placeholder="Parolanız Tekrar" required />
+        <input type="submit" class="registerbtn" value="Kaydol" />
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    </div>
+
+
+}
+
+    

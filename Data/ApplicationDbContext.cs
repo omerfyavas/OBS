@@ -8,6 +8,7 @@ namespace Login.Data
         public virtual DbSet<Student> Student { get; set; } = default!;
         public virtual DbSet<Lesson> Lesson { get; set; } = default!;
         public virtual DbSet<Note> Note { get; set; } = default!;
+        public virtual DbSet<Account> Account { get; set; } = default!;
 
         public ApplicationDbContext()
         {
