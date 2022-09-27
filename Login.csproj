@@ -60,6 +60,7 @@
     <None Include="wwwroot\fonts\.DS_Store" />
     <None Include="wwwroot\images\.DS_Store" />
     <None Include="wwwroot\images\bg.jpg" />
+    <None Include="wwwroot\images\Background.jpg" />
     <None Include="wwwroot\js\.DS_Store" />
     <None Include="wwwroot\js\bootstrap.min.js" />
     <None Include="wwwroot\js\jquery.min.js" />

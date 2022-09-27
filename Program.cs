@@ -1,4 +1,5 @@
 using Login.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +10,7 @@ builder.Services.AddSession(option =>
 {
     //Süre 30 dk olarak belirlendi
     option.IdleTimeout = TimeSpan.FromMinutes(30);
-    option.Cookie.SameSite = SameSiteMode.Lax;   
+    option.Cookie.SameSite = SameSiteMode.Lax;
 });
 
 builder.Services.AddDistributedMemoryCache();
@@ -23,6 +24,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(opt =>
+            {
+                opt.LoginPath = "/Account/Login/";
+            });
 
 var app = builder.Build();
 
@@ -45,6 +52,9 @@ app.UseSession();
 
 app.UseRouting();
 
+// + Cookie Auth
+app.UseAuthentication();
+// -
 
 app.UseAuthorization();
 

@@ -10,7 +10,7 @@
             {
                 new Account
                 {
-                    UserName = "omer",
+                    UserName = "Admin",
                     Password = "12345",
                 };
             }
@@ -19,7 +19,7 @@
         public bool Login(string userName, string password)
         {
 
-            if (userName != "omer" || password != "123456")
+            if (userName != "Admin" || password != "123456")
             {
                 return false;
             }

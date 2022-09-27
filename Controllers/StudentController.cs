@@ -125,7 +125,6 @@ namespace Login.Controllers
                 var existingStudent = context.Student.Where(p => p.Id == model.Id).FirstOrDefault();
                 existingStudent.Name = model.StudentName;
                 existingStudent.Surname = model.StudentSurname;
-
                 context.Student.Remove(existingStudent);
                 context.SaveChanges();
 

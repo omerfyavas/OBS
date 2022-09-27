@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+@{
+    if (TempData["Hata"] != null)
+    {
+        <h3>Hata : @TempData["Hata"]</h3>
+    }
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="container">
+        <h1>Giriş Yap</h1>
+        <p>Lütfen Bilgilerinizi Giriniz.</p>
+        <hr>
+        <label for="eMail"><b>E-mail</b></label>
+        <input type="text" name="eMail" placeholder="E-mail" required />
+        <label for="password"><b>Parola</b></label>
+        <input type="password" name="password" placeholder="Parolanız" required />
+        <input type="submit" class="loginbtn" value="Giriş Yap" />
+        <div align="right">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Kaydol</a>
+        </div>
+        <div class="w-50 text-center">
+        <a href="#" style="color: #fff">Şifremi Unuttum</a>
+        </div>
+        <hr>
+    </div>
+
+
+}
+

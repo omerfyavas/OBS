@@ -1,6 +1,7 @@
 ﻿using Login.Data;
 using Login.Domain;
 using Login.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,6 +19,7 @@ namespace Login.Controllers
             _logger = logger;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             var test1 = StaticStringExtensions.Test;
@@ -33,6 +35,8 @@ namespace Login.Controllers
         {
             return View();
         }
+
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();

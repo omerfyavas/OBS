@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Login.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/images~/images/Background.jpg" asp-append-version="true"/>
 </head>
 <body>
+
     <div id="errorModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -45,7 +47,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>                       
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Lessons">Dersler</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Lesson" asp-action="List">Dersler</a>
                         </li>                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Lesson" asp-action="Create">Ders Ekle</a>
@@ -62,7 +64,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Note" asp-action="List">Notları Listele</a>
                         </li>
-                        
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -74,24 +76,25 @@
             @{
                 if (TempData["Hata"] != null)
                 {
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Hata!</strong> @TempData["Hata"].ToString()
-                    </div>
+                                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <strong>Hata!</strong> @TempData["Hata"].ToString()
+                                                            </div>
                 }
                 if (TempData["Bilgi"] != null)
                 {
-                    <div class="alert alert-success alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Bilgi: </strong> @TempData["Bilgi"].ToString()
-                    </div>
+                                                            <div class="alert alert-success alert-dismissible" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <strong>Bilgi: </strong> @TempData["Bilgi"].ToString()
+                                                            </div>
                 }
             }
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" >
+
         <div class="container">
             &copy; 2022 - Login - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -99,9 +102,12 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+
 
 
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
 
