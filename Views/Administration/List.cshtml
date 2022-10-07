@@ -1,0 +1,65 @@
+﻿@using Login.Domain
+
+@model List<Account>
+@{
+    ViewData["Title"] = "Kullanıcılar";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Hesap Tipi</th>
+                <th scope="col">Hesap Email</th>
+                <th scope="col">Hesap Ad-Soyad</th>
+                <th scope="col">Güncelle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in  Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Type</td>
+                        <td>@item.Email</td>
+                        <td>@item.NameSurname</td>
+                        <td><button data-AccountId="@item.Id" type="button" class="btn btn-primary account-update">Güncelle</button></td>
+                        <td><button data-AccountId="@item.Id" type="button" class="btn btn-danger account-delete">Sil</button></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+}
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".account-delete").on("click", function (e) {
+            debugger;
+            var answer = window.confirm("Kayıt silinsin mi ?");
+            if (answer) {
+                const student = $(this).attr("data-accountId");
+
+                window.location = '@Url.Action("Delete","Account")' + "?id=" + account;
+            }
+            else {
+                alert("Kayıt silme iptal");
+            }
+        });                                                                                                                                    
+        $(".account-update").on("click", function (e) {
+
+            const student = $(this).attr("data-accountId");
+            window.location = '@Url.Action("Update","Account")' + "?id=" + account;
+
+        });
+    });
+</script>
+}
+

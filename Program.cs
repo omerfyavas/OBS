@@ -22,8 +22,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddRazorPages();
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(opt =>
@@ -65,3 +65,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+

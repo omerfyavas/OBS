@@ -8,4 +8,5 @@
         public string RePassword { get; set; }
 
     }
+
 }

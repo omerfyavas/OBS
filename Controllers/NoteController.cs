@@ -32,7 +32,7 @@ namespace Login.Controllers
 
                 return View(query);
 
-                //var notes = context.Note.OrderByDescending(p => p.Total).ToList();
+                //var notes = context.Note.OrderByDescending(p => p.AverageNote).ToList();
                 //return View(notes);
             }
 
@@ -51,7 +51,7 @@ namespace Login.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePOST(StudentNoteModel model)
+        public IActionResult CreatePost(StudentNoteModel model)
         {
             if (model.VisaNote < 0 || model.VisaNote > 100)
             {

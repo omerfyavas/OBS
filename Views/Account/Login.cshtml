@@ -7,27 +7,27 @@
         <h3>Hata : @TempData["Hata"]</h3>
     }
 }
-
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
-    <div class="container">
-        <h1>Giriş Yap</h1>
-        <p>Lütfen Bilgilerinizi Giriniz.</p>
-        <hr>
-        <label for="eMail"><b>E-mail</b></label>
-        <input type="text" name="eMail" placeholder="E-mail" required />
-        <label for="password"><b>Parola</b></label>
-        <input type="password" name="password" placeholder="Parolanız" required />
-        <input type="submit" class="loginbtn" value="Giriş Yap" />
-        <div align="right">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Kaydol</a>
+    <body class="bodyy">
+        <div class="container2">
+            <img src="~/images/image1.jpg" class="student-img">
+            <hr>
+            <h1>Giriş Yap</h1>
+            <label for="eMail"><b>E-mail</b></label>
+            <input type="text" name="eMail" placeholder="E-mail" required autocomplete="off" />
+            <label for="password"><b>Parola</b></label>
+            <input type="password" name="password" placeholder="Parolanız" required autocomplete="off" />
+            <input type="submit" class="loginbtn" value="Giriş Yap" />
+            <hr>
+            <div class="w-50 border-left">
+                <a href="#">Şifremi Unuttum</a>
+            </div>
+            <div align="right">
+                <a class="nav-link textalert-dismissible" asp-area="" asp-controller="Account" asp-action="Register">Kaydol</a>
+            </div>
         </div>
-        <div class="w-50 text-center">
-        <a href="#" style="color: #fff">Şifremi Unuttum</a>
-        </div>
         <hr>
-    </div>
-
-
+    </body>
 }
 
